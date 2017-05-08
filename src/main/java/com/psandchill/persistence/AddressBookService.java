@@ -22,6 +22,10 @@ public class AddressBookService implements AddressBookPersistence{
         populateData(20);
     }
 
+    public AddressBookService(int x){
+        populateData(x);
+    }
+
     @Override
     public Contact getContact(int id) {
         return null;
