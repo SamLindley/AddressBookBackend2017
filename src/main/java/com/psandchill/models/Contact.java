@@ -2,11 +2,16 @@ package com.psandchill.models;
 
 public class Contact {
 
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String tel;
     private String city;
+
+    public Contact(){
+
+    }
 
     public Contact(String firstName, String lastName, String email, String tel, String city) {
         this.firstName = firstName;
@@ -16,6 +21,13 @@ public class Contact {
         this.city = city;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getFirstName() {
         return firstName;
     }

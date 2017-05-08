@@ -10,7 +10,7 @@
 
  <!-- <repositories>
     <repository>
-      <id>prime-repo</id>
+      <id>prime-service</id>
       <name>Prime Repo</name>
       <url>http://repository.primefaces.org</url>
     </repository>

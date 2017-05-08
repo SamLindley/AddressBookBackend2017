@@ -19,7 +19,7 @@ public class AddressBookRepoStub implements AddressBookPersistence {
     }
 
     @Override
-    public void postContact(Contact contact){
+    public void addContact(Contact contact){
 
     }
 
@@ -30,5 +30,10 @@ public class AddressBookRepoStub implements AddressBookPersistence {
         contacts.add(new Contact("sam", "sam", "sam", "2", "2"));
 
         return contacts;
+    }
+
+    @Override
+    public void saveContact(Contact createdContact) {
+        System.out.println(createdContact.getFirstName());
     }
 }

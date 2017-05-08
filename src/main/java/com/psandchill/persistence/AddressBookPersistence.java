@@ -3,11 +3,14 @@ package com.psandchill.persistence;
 import com.psandchill.models.Contact;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public interface AddressBookPersistence {
     Contact getContact(int id);
 
-    void postContact(Contact contact);
+    void addContact(Contact contact);
 
-    ArrayList<Contact> getContacts();
+    Collection<Contact> getContacts();
+
+    void saveContact(Contact createdContact);
 }
