@@ -48,8 +48,43 @@
     <br/>
     <h:form>
         <h:inputText id="deleteId" value="#{controller.deleteId}"/>
-        <p:commandButton id="delete" value="delete" action="#{controller.deleteContact()}"/>
+        <h:commandButton id="delete" value="delete" action="#{controller.deleteContact()}"/>
     </h:form>
+
+    <br/>
+    <br/>
+    <h:form>
+        <h:inputText id="searchTerm" value="#{controller.searchTerm}"/>
+        <h:commandButton id="searchTermButton" value="search" action="#{controller.findContact()}"/>
+    </h:form>
+
+    <h:form>
+        <p:dataTable id="whatever" var="foundContact" value="#{controller.filteredContacts}">
+            <!-- Om vi vill anropa dtSelectionView direkt när vi väljer i listan måste vi skapa ett ajaxevent på raden -->
+            <p:ajax event="rowSelect" update="@this"/>
+            <f:facet name="header">
+                FILTERED CONTACTS
+            </f:facet>
+            <p:column headerText="ID">
+                <h:outputText value="#{foundContact.id}"/>
+            </p:column>
+            <p:column headerText="First Name">
+                <h:outputText value="#{foundContact.firstName}"/>
+            </p:column>
+            <p:column headerText="Last Name">
+                <h:outputText value="#{foundContact.lastName}"/>
+            </p:column>
+            <p:column headerText="Email">
+                <h:outputText value="#{foundContact.email}"/>
+            </p:column>
+            <p:column headerText="Telephone">
+                <h:outputText value="#{foundContact.tel}"/>
+            </p:column>
+
+        </p:dataTable>
+    </h:form>
+
+
 </h:body>
 
 

@@ -13,4 +13,6 @@ public interface AddressBookPersistence {
     Collection<Contact> getContacts();
 
     void saveContact(Contact createdContact);
+
+    Collection<Contact> findContacts(String searchTerm);
 }

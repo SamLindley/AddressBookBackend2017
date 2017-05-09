@@ -5,6 +5,7 @@ import com.psandchill.models.Contact;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
+import java.util.Collection;
 
 @ManagedBean(name = "addressRepo", eager = true)
 @ApplicationScoped
@@ -35,5 +36,10 @@ public class AddressBookRepoStub implements AddressBookPersistence {
     @Override
     public void saveContact(Contact createdContact) {
         System.out.println(createdContact.getFirstName());
+    }
+
+    @Override
+    public Collection<Contact> findContacts(String searchTerm) {
+        return null;
     }
 }
