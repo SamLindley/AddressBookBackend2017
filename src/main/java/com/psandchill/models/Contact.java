@@ -9,6 +9,8 @@ public class Contact {
     private String tel;
     private String city;
 
+    private boolean editable;
+
     public Contact(){
 
     }
@@ -66,5 +68,17 @@ public class Contact {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
+    public void editAction() {
+        setEditable(true);
     }
 }

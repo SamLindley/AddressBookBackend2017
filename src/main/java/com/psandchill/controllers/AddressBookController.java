@@ -54,6 +54,13 @@ public class AddressBookController {
         //return "results.xhtml";
     }
 
+    public void saveChanges(){
+        for (Contact contact: contacts
+             ) {
+            contact.setEditable(false);
+        }
+    }
+
     public Contact getCreatedContact() {
         return createdContact;
     }

@@ -10,32 +10,46 @@
 <h:head>
 </h:head>
 <h:body>
-    <p:dataTable id="singleDT" var="contact" value="#{controller.contacts}">
-        <!-- Om vi vill anropa dtSelectionView direkt när vi väljer i listan måste vi skapa ett ajaxevent på raden -->
-        <p:ajax event="rowSelect" update="@this"/>
-        <f:facet name="header">
-            MY CONTACTS
-        </f:facet>
-        <p:column headerText="ID">
-            <h:outputText value="#{contact.id}"/>
-        </p:column>
-        <p:column headerText="First Name">
-            <h:outputText value="#{contact.firstName}"/>
-        </p:column>
-        <p:column headerText="Last Name">
-            <h:outputText value="#{contact.lastName}"/>
-        </p:column>
-        <p:column headerText="Email">
-            <h:outputText value="#{contact.email}"/>
-        </p:column>
-        <p:column headerText="City">
-            <h:outputText value="#{contact.city}"/>
-        </p:column>
-        <p:column headerText="Telephone">
-            <h:outputText value="#{contact.tel}"/>
-        </p:column>
+    <h:form>
+        <p:dataTable id="singleDT" var="contact" value="#{controller.contacts}">
+            <!-- Om vi vill anropa dtSelectionView direkt när vi väljer i listan måste vi skapa ett ajaxevent på raden -->
+            <p:ajax event="rowSelect" update="@this"/>
+            <f:facet name="header">
+                MY CONTACTS
+            </f:facet>
+            <p:column headerText="ID">
+                <h:outputText value="#{contact.id}"/>
+            </p:column>
+            <p:column headerText="First Name">
+                <h:inputText value="#{contact.firstName}" size="10" rendered="#{contact.editable}" />
+                <h:outputText value="#{contact.firstName}" rendered="#{not contact.editable}"/>
+            </p:column>
+            <p:column headerText="Last Name">
+                <h:inputText value="#{contact.lastName}" size="10" rendered="#{contact.editable}" />
+                <h:outputText value="#{contact.lastName}" rendered="#{not contact.editable}"/>
+            </p:column>
+            <p:column headerText="Email">
+                <h:inputText value="#{contact.email}" size="10" rendered="#{contact.editable}" />
+                <h:outputText value="#{contact.email}" rendered="#{not contact.editable}"/>
+            </p:column>
+            <p:column headerText="City">
+                <h:inputText value="#{contact.city}" size="10" rendered="#{contact.editable}" />
+                <h:outputText value="#{contact.city}" rendered="#{not contact.editable}"/>
+            </p:column>
+            <p:column headerText="Telephone">
+                <h:inputText value="#{contact.tel}" size="10" rendered="#{contact.editable}" />
+                <h:outputText value="#{contact.tel}" rendered="#{not contact.editable}"/>
+            </p:column>
 
-    </p:dataTable>
+            <p:column headerText="Telephone">
+                <h:commandLink value="Edit" action="#{contact.editAction()}" rendered="#{not contact.editable}"/>
+            </p:column>
+
+
+        </p:dataTable>
+        <h:commandButton value="Save Changes" action="#{controller.saveChanges()}" />
+    </h:form>
+
     <br/>
     <br/>
     <h:form>
