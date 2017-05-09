@@ -58,10 +58,10 @@ public class AddressBookService implements AddressBookPersistence{
         Map<Integer, Contact> foundContacts =
                 contacts.entrySet()
                         .stream()
-                        .filter(p -> p.getValue().getFirstName().contains(searchTerm) ||
-                                p.getValue().getLastName().contains(searchTerm) ||
-                                p.getValue().getEmail().contains(searchTerm) ||
-                                p.getValue().getCity().contains(searchTerm))
+                        .filter(p -> (p.getValue().getFirstName() != null && p.getValue().getFirstName().contains(searchTerm)) ||
+                                (p.getValue().getLastName() != null && p.getValue().getLastName().contains(searchTerm)) ||
+                                (p.getValue().getEmail() != null && p.getValue().getEmail().contains(searchTerm)) ||
+                                (p.getValue().getCity() != null && p.getValue().getCity().contains(searchTerm)))
 
                         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         return foundContacts.values();
